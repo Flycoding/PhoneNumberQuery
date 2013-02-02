@@ -20,7 +20,7 @@ public class XMLTest extends AndroidTestCase {
 		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD) {
 			StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
 		}
-		InputStream is = getClass().getClassLoader().getResourceAsStream("persons.xml");
+		InputStream is = getClass().getResourceAsStream("/persons.xml");
 		byte[] bytes = getBytes(is);
 		HttpURLConnection conn = (HttpURLConnection) new URL("http://10.1.79.23:8080/News/XmlServlet").openConnection();
 		conn.setConnectTimeout(5000);
