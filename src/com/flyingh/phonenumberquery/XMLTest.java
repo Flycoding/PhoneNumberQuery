@@ -8,8 +8,6 @@ import java.net.URL;
 
 import org.apache.http.HttpStatus;
 
-import android.os.Build;
-import android.os.StrictMode;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
@@ -17,9 +15,6 @@ public class XMLTest extends AndroidTestCase {
 	private static final String TAG = "XMLTest";
 
 	public void test() throws IOException {
-		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD) {
-			StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
-		}
 		InputStream is = getClass().getResourceAsStream("/persons.xml");
 		byte[] bytes = getBytes(is);
 		HttpURLConnection conn = (HttpURLConnection) new URL("http://10.1.79.23:8080/News/XmlServlet").openConnection();
