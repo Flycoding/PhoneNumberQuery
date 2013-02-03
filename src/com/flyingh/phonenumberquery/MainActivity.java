@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
 			conn.setConnectTimeout(5000);
 			conn.setRequestMethod("POST");
 			conn.setDoOutput(true);
-			conn.setRequestProperty("Content-Type", "text/xml; charset=utf-8");
+			conn.setRequestProperty("Content-Type", "application/soap+xml; charset=utf-8");
 			byte[] bytes = new String(readXmlFile()).replaceAll("number", numberText.getText().toString()).getBytes();
 			conn.setRequestProperty("Content-Length", String.valueOf(bytes.length));
 			conn.getOutputStream().write(bytes);
